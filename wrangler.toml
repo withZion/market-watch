@@ -1,0 +1,28 @@
+name = "cron-scanner"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+
+# Every 5 minutes. Match INTERVAL in src/config.js if you change it.
+[triggers]
+crons = ["*/5 * * * *"]
+
+# Run log and state. Create one with `wrangler kv namespace create LOG`
+# and paste the id it prints.
+[[kv_namespaces]]
+binding = "LOG"
+id = "<your-kv-namespace-id>"
+
+# Each scheduled run executes inside a Durable Object so it can be pinned
+# to a region (some exchanges refuse requests from certain countries).
+[[durable_objects.bindings]]
+name = "RUNNER"
+class_name = "Runner"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Runner"]
+
+# Secrets are NOT set here. Run:
+#   wrangler secret put TELEGRAM_BOT_TOKEN
+#   wrangler secret put TELEGRAM_CHAT_ID
+# For local dev, copy .dev.vars.example to .dev.vars.

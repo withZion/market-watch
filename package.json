@@ -1,0 +1,15 @@
+{
+  "name": "workers-cron-scanner",
+  "version": "0.1.0",
+  "description": "Cloudflare Workers template: a cron-triggered scanner that evaluates a list of symbols in parallel on every candle close and notifies you.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "test": "node --test src/*.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
