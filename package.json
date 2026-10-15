@@ -1,5 +1,5 @@
 {
-  "name": "workers-cron-scanner",
+  "name": "market-watch",
   "version": "0.1.0",
   "description": "Cloudflare Workers template: a cron-triggered scanner that evaluates a list of symbols in parallel on every candle close and notifies you.",
   "type": "module",

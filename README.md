@@ -1,4 +1,4 @@
-# workers-cron-scanner
+# market-watch
 
 A Cloudflare Workers template for the "check a list of things every few
 minutes and tell me when something happens" job. It fetches candles for a
